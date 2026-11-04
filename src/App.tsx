@@ -83,10 +83,12 @@ function Caderno({ user }: { user: User | null }) {
     go("erros");
   }, [go]);
 
+  const nome = user?.displayName?.trim() || user?.email?.split("@")[0] || DONA;
+
   const ctx: AppCtx = useMemo(() => ({
     ...api, notify, abrir: setModal, fechar, go, irParaTopico, filtros, setFiltros,
-    frase, novaFrase: () => setFrase(sortearFrase()), temConta: Boolean(user)
-  }), [api, notify, fechar, go, irParaTopico, filtros, frase, user]);
+    frase, novaFrase: () => setFrase(sortearFrase()), temConta: Boolean(user), nome
+  }), [api, notify, fechar, go, irParaTopico, filtros, frase, user, nome]);
 
   const c = counts(api.items);
 
@@ -100,7 +102,7 @@ function Caderno({ user }: { user: User | null }) {
               <div className="eyebrow">Preparação para concursos públicos</div>
               <h1>CADERNO DE ERROS</h1>
               <p className="tagline">Uma ferramenta para transformar erros em acertos.</p>
-              <div className="owner"><span className="who">{DONA}</span></div>
+              <div className="owner"><span className="who">{nome}</span></div>
             </div>
             <div className="hd-side">
               <div className="hd-meta">

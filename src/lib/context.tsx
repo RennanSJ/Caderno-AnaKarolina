@@ -20,6 +20,8 @@ export interface UiApi {
   frase: string;
   novaFrase: () => void;
   temConta: boolean;
+  /** Nome da conta Google; sem login, o nome padrão do caderno. */
+  nome: string;
 }
 
 export type AppCtx = CadernoApi & UiApi;

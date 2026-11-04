@@ -6,14 +6,14 @@ import { useApp } from "../lib/context";
 import { diffDays, fmtShort, pct, plural, today } from "../lib/utils";
 
 export function Hero() {
-  const { frase, novaFrase } = useApp();
+  const { frase, novaFrase, nome } = useApp();
   return (
     <section className="hero">
       <figure className="hero-img">
-        <img src="/avatar.webp" alt="Ilustração da Ana Karolina estudando, com cadernos abertos e uma coruja lendo ao lado" width={640} height={640} />
+        <img src="/avatar.webp" alt={`Ilustração da ${DONA} estudando, com cadernos abertos e uma coruja lendo ao lado`} width={640} height={640} />
       </figure>
       <div className="motiv" aria-label="Mensagem do dia">
-        <div className="hi">Olá, {DONA}!</div>
+        <div className="hi">Olá, {nome}!</div>
         <div className="lb"><Icon name="spark" size={16} />Mensagem para você</div>
         <blockquote>{frase}</blockquote>
         <button className="again" type="button" onClick={novaFrase}><Icon name="repeat" size={14} />Outra mensagem</button>
