@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Anuncio, AvisoCookies } from "./components/Anuncio";
 import { Icon, type IconName } from "./components/Icon";
 import { Confirmar, Detalhe, ErroForm, Revisao } from "./components/Modals";
 import { DONA, FRASES } from "./constants";
@@ -15,6 +16,7 @@ import { Evolucao } from "./views/Evolucao";
 import { Login } from "./views/Login";
 import { Materias } from "./views/Materias";
 import { MeusErros } from "./views/MeusErros";
+import { Privacidade } from "./views/Privacidade";
 
 const VIEWS: View[] = ["dashboard", "erros", "ciclo", "evolucao", "materias", "backup"];
 const NAV: Array<{ v: View | "novo"; label: string; icon: IconName }> = [
@@ -144,7 +146,10 @@ function Caderno({ user }: { user: User | null }) {
           {view === "materias" && <Materias />}
           {view === "backup" && <Backup />}
         </main>
+        {view === "dashboard" && <Anuncio />}
+        <footer className="rodape"><a href="/privacidade">Política de privacidade</a></footer>
       </div>
+      <AvisoCookies />
 
       <button className="fab" type="button" aria-label="Registrar novo erro" onClick={() => setModal({ kind: "form" })}><Icon name="plus" size={24} /></button>
 
@@ -163,6 +168,11 @@ function Caderno({ user }: { user: User | null }) {
 }
 
 export default function App() {
+  if (window.location.pathname.replace(/\/+$/, "") === "/privacidade") return <Privacidade />;
+  return <AppComConta />;
+}
+
+function AppComConta() {
   const [user, setUser] = useState<User | null>(null);
   const [pronto, setPronto] = useState(!firebaseConfigurado);
   useEffect(() => observarLogin((u) => { setUser(u); setPronto(true); }), []);

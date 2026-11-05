@@ -105,6 +105,21 @@ Qualquer mudança enviada ao GitHub é publicada sozinha pelo Netlify em cerca d
 
 Se um deploy falhar, o Netlify mantém a versão anterior no ar. Abra **Deploys**, clique no deploy com erro e veja o motivo no log.
 
+## Anúncios (Google AdSense)
+
+Os anúncios ficam desligados até o código de editor ser configurado. Para ligar, cadastre no Netlify, em **Environment variables**:
+
+| Variável | Valor |
+|---|---|
+| `VITE_ADSENSE_CLIENT` | código de editor, no formato `ca-pub-1234567890123456` |
+| `VITE_ADSENSE_SLOT` | ID do bloco de anúncio criado em **Anúncios → Por bloco de anúncios** |
+
+Depois, publique de novo em **Deploys → Trigger deploy**. A build coloca a tag de verificação e o script do AdSense na página e gera o arquivo `ads.txt`.
+
+- Os blocos aparecem na página inicial pública e no fim do Dashboard. Sem `VITE_ADSENSE_SLOT`, só os anúncios automáticos do painel do AdSense funcionam.
+- A política de privacidade fica em `/privacidade`. O e-mail de contato dela é `CONTATO_EMAIL`, em `src/constants.ts`.
+- Para visitantes da Europa, ative a mensagem de consentimento em **AdSense → Privacidade e mensagens**.
+
 ## Rodar no computador (opcional)
 
 Precisa do Node.js 20 ou mais novo.

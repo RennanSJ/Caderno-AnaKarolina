@@ -2,6 +2,8 @@ import type { Catalogo, OrigemKey, OrigemValida, Prioridade } from "./types";
 import type { IconName } from "./components/Icon";
 
 export const DONA = "Ana Karolina";
+/** E-mail de contato mostrado na política de privacidade. Vazio = a seção de contato não aparece. */
+export const CONTATO_EMAIL = "";
 
 export const PRIO: Record<Prioridade, { nome: string; curto: string; desc: string; icon: IconName; cor: string; soft: string }> = {
   alta: {

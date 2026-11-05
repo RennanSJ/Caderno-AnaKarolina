@@ -384,3 +384,36 @@ textarea.in { resize: vertical; min-height: 82px; line-height: 1.5; }
   .motiv .again { position: static; margin-top: 14px; align-self: flex-start; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* ---------- Página inicial pública, privacidade, anúncios ---------- */
+.landing { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;
+  padding: max(24px, env(safe-area-inset-top, 0px)) 16px max(32px, env(safe-area-inset-bottom, 0px)); }
+.landing .card p { margin: 6px 0 0; }
+.passos { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 12px; }
+.passos li { display: flex; gap: 12px; align-items: flex-start; }
+.passos .n { flex: none; width: 30px; height: 30px; border-radius: 10px; display: grid; place-items: center; background: var(--blue-soft); color: var(--blue); font-weight: 700; }
+.passos p { margin: 2px 0 0; color: var(--muted); }
+.tipos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin-top: 14px; }
+.tipo { border-radius: 14px; padding: 14px; }
+.tipo b { display: inline-flex; align-items: center; gap: 6px; }
+.tipo p { font-size: 14px; }
+.tipo .dica { font-size: 13px; color: var(--muted); }
+.edital { margin-top: 12px; display: grid; gap: 8px; }
+.edital details { border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; }
+.edital summary { cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 10px; list-style-position: inside; }
+.edital summary .sub { margin: 0; white-space: nowrap; }
+.edital ol { margin: 10px 0 2px; padding-left: 22px; display: grid; gap: 6px; font-size: 14px; }
+.doc h1 { font-size: clamp(26px, 4vw, 34px); margin-top: 6px; }
+.doc h2 { margin-top: 22px; }
+.doc ul { padding-left: 20px; display: grid; gap: 8px; margin: 10px 0 0; }
+.doc a:not(.linkbtn), .cookies a, .rodape a { color: var(--blue); font-weight: 600; overflow-wrap: anywhere; }
+.doc > .linkbtn { align-self: flex-start; text-decoration: none; }
+.rodape { text-align: center; font-size: 13px; margin-top: 18px; }
+.ad { margin-top: 16px; background: var(--surface); border-radius: var(--r); padding: 10px 12px 12px; box-shadow: var(--shadow); min-height: 120px; overflow: hidden; }
+.landing .ad { margin-top: 0; }
+.ad-lb { display: block; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.cookies { position: fixed; z-index: 70; left: 50%; transform: translateX(-50%); bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  width: min(640px, calc(100% - 32px)); display: flex; align-items: center; gap: 12px; background: var(--surface); border: 1px solid var(--line-2);
+  border-radius: 16px; padding: 12px 14px; box-shadow: var(--shadow); font-size: 13.5px; }
+.cookies p { margin: 0; flex: 1; }
+@media (max-width: 520px) { .cookies { flex-direction: column; align-items: stretch; } }
