@@ -4,6 +4,8 @@
 
 [build.environment]
   NODE_VERSION = "20"
+  # Código de editor do Google AdSense (público; aparece na página e no ads.txt)
+  VITE_ADSENSE_CLIENT = "ca-pub-3191706216199958"
 
 # Aplicativo de página única: qualquer endereço abre o index.html
 [[redirects]]
